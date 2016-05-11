@@ -86,7 +86,7 @@ $(function() {
       loadFeed(0, done);
     });
     it('should be loaded', function() {
-      expect(document.getElementsByClassName("feed")[0]).toContain(document.getElementsByClassName("entery"));
+      expect(document.getElementsByClassName("feed")[0]).toContain(document.getElementsByClassName("entry"));
     });
   });
 
