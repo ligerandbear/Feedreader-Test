@@ -29,9 +29,9 @@ $(function() {
     function feedAndURLTest(i) {
       it(allFeeds[i].name + ' should have a name and a URL', function() {
         expect(allFeeds[i].name).toBeDefined();
-        expect(allFeeds[i].name).not.toBe("");
+        expect(allFeeds[i].name).not.toBe('');
         expect(allFeeds[i].url).toBeDefined();
-        expect(allFeeds[i].url).not.toBe("");
+        expect(allFeeds[i].url).not.toBe('');
       });
     }
 
@@ -66,7 +66,8 @@ $(function() {
       loadFeed(0, done);
     });
     it('should be loaded', function(done) {
-      expect(document.getElementsByClassName("feed")[0]).toContain(document.getElementsByClassName("entry"));
+      expect(document.getElementsByClassName("entry").length).toBeGreaterThan(0);
+      done();
     });
   });
 
@@ -76,14 +77,18 @@ $(function() {
      * by the loadFeed function that the content actually changes.
      * Remember, loadFeed() is asynchronous.
      */
+    var initialFeedLoad;
+    var changedFeedLoad;
     beforeEach(function(done) {
       loadFeed(0, done);
       var initialFeedLoad = document.getElementsByClassName("feed")[0].innerHTML;
-      loadFeed(3, done);
+    });
+    beforeEach(function(done) {
       var changedFeedLoad = document.getElementsByClassName("feed")[0].innerHTML;
     });
     it('should change when the content changes', function() {
       expect(initialFeedLoad).not.toEqual(changedFeedLoad);
+      done();
     });
   });
 }());
