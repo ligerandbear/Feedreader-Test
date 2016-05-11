@@ -38,9 +38,9 @@ $(function() {
     function feedAndURLTest(i) {
       it(allFeeds[i].name + ' should have a name and a URL', function() {
         expect(allFeeds[i].name).toBeDefined();
-        expect(allFeeds[i].name).not.toBe(null);
+        expect(allFeeds[i].name).not.toBe("");
         expect(allFeeds[i].url).toBeDefined();
-        expect(allFeeds[i].url).not.toBe(null);
+        expect(allFeeds[i].url).not.toBe("");
       });
     }
 
