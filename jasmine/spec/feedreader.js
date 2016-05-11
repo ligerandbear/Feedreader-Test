@@ -60,12 +60,14 @@ $(function() {
     var initialFeedLoad;
     var changedFeedLoad;
     beforeEach(function(done) {
-      loadFeed(0, function(){
-		  initialFeedLoad = document.getElementsByClassName("feed")[0].innerHTML;
-		  done();
-		  loadFeed(3,done);
-		  changedFeedLoad = document.getElementsByClassName("feed")[0].innerHTML;
-	  });
+      loadFeed(0, function() {
+        initialFeedLoad = document.getElementsByClassName("feed")[0].innerHTML;
+        loadFeed(3, function() {
+          changedFeedLoad = document.getElementsByClassName("feed")[0].innerHTML;
+          done();
+        });
+
+      });
 
     });
     it('should change when the content changes', function() {
