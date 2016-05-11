@@ -132,4 +132,3 @@ $(function() {
         $('body').toggleClass('menu-hidden');
     });
 }());
-console.log(document.getElementsByClassName("header-title")[0]);
